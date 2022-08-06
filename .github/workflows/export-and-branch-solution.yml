@@ -5,12 +5,12 @@ name: export-and-branch-solution
 #  using spn-auth with Client ID and Tenant ID for environemnet login 
 #  
 #  using secrets for
-#   ClientID              Service Principal App ID
-#   TentantID             Service Principal Azure AD tenant
+#   PP_Client_ID              Service Principal App ID
+#   PP_Tenant_ID             Service Principal Azure AD tenant
 #   Password              User Password
 #   PowerPlatformSPN      Service Principal secrtes
 #
-#   DevEnvironmentUrl     Url referencing the development environment
+#   PP_DEV_URL     Url referencing the development environment
 
 
 on:
@@ -50,19 +50,19 @@ jobs:
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@0.4.0
       with:
-        environment-url: ${{secrets.DevEnvironmentUrl}}
-        app-id: ${{secrets.ClientID}}
-        client-secret: ${{ secrets.PowerPlatformSPN }}
-        tenant-id: ${{secrets.TentantID}}
+        environment-url: ${{secrets.PP_DEV_URL}}
+        app-id: ${{secrets.PP_Client_ID}}
+        client-secret: ${{ secrets.PP_SERVICE_PRINCIPAL_NAME }}
+        tenant-id: ${{secrets.PP_Tenant_ID}}
 
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@0.4.0
       with:
-        environment-url: ${{secrets.DevEnvironmentUrl}}
-        app-id: ${{secrets.ClientID}}
-        client-secret: ${{ secrets.PowerPlatformSPN }}
-        tenant-id: ${{secrets.TentantID}}
+        environment-url: ${{secrets.PP_DEV_URL}}
+        app-id: ${{secrets.PP_Client_ID}}
+        client-secret: ${{ secrets.PP_SERVICE_PRINCIPAL_NAME }}
+        tenant-id: ${{secrets.PP_Tenant_ID}}
         solution-name: ${{ github.event.inputs.solution_name }}
         solution-output-file: ${{ github.event.inputs.solution_exported_folder}}/${{ github.event.inputs.solution_name }}.zip
 
