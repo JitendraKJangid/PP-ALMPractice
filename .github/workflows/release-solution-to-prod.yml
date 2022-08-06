@@ -14,7 +14,7 @@ name: release-solution-to-prod
 #   PP_USER_PASSWORDword              User PP_USER_PASSWORDword
 #   PP_SERVICE_PRINCIPAL_NAME      Service Principal secrtes
 #
-#   BuildEnvironmentUrl   Url referencing the build environment
+#   PP_DEV_URL   Url referencing the build environment
 #   PP_PROD_URL    Url referencing the production environment
 
 on:
@@ -67,7 +67,7 @@ jobs:
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@0.4.0
       with:
-        environment-url: ${{secrets.BuildEnvironmentUrl}}
+        environment-url: ${{secrets.PP_DEV_URL}}
         app-id: ${{secrets.PP_Client_ID}}
         client-secret: ${{ secrets.PP_SERVICE_PRINCIPAL_NAME }}
         tenant-id: ${{secrets.PP_Tenant_ID}}
@@ -78,7 +78,7 @@ jobs:
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@0.4.0
       with:
-        environment-url: ${{secrets.BuildEnvironmentUrl}}
+        environment-url: ${{secrets.PP_DEV_URL}}
         app-id: ${{secrets.PP_Client_ID}}
         client-secret: ${{ secrets.PP_SERVICE_PRINCIPAL_NAME }}
         tenant-id: ${{secrets.PP_Tenant_ID}}
