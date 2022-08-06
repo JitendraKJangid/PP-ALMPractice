@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name LocalizedName="Custom Entity 2017 Expenses" OriginalName="Custom Entity 2017 Expenses">cre4b_1adf0ee848c64854b0908f10086f5d34</Name>
+  <EntityInfo>
+    <entity Name="cre4b_1adf0ee848c64854b0908f10086f5d34" unmodified="1">
+      <attributes />
+    </entity>
+  </EntityInfo>
+  <RibbonDiffXml />
+</Entity>
